@@ -1,0 +1,28 @@
+<div class='grid' *ngIf='images'>
+    <div class='column column-responsive'>
+        <div class='row'>
+            <div [libPhoto]='images[0]' class='bg-tile'></div>
+        </div>
+        <div class='row'>
+            <div class='column'>
+                <div [libPhoto]='images[1]' class='bg-tile'></div>
+            </div>
+            <div class='column'>
+                <div [libPhoto]='images[2]' class='bg-tile'></div>
+            </div>
+        </div>
+    </div>
+    <div class='column column-responsive'>
+        <div class='row'>
+            <div class='column'>
+                <div [libPhoto]='images[3]' class='bg-tile'></div>
+            </div>
+            <div class='column'>
+                <div [libPhoto]='images[4]' class='bg-tile'></div>
+            </div>
+        </div>
+        <div class='row'>
+            <div [libPhoto]='images[5]' class='bg-tile'></div>
+        </div>
+    </div>
+</div>
