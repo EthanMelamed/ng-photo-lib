@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { PhotoModel } from '../photo.model';
 
 @Component({
@@ -6,13 +6,14 @@ import { PhotoModel } from '../photo.model';
   templateUrl: './photo-show.component.html',
   styleUrls: ['./photo-show.component.scss']
 })
-export class PhotoShowComponent implements AfterViewInit {
+export class PhotoShowComponent implements AfterViewInit, OnDestroy {
 
   @Input() photos: (string|PhotoModel)[];
   @Input() interval = 8;
 
   current: string|PhotoModel;
   running = true;
+  tasks = [];
 
   constructor() { }
 
@@ -23,9 +24,12 @@ export class PhotoShowComponent implements AfterViewInit {
     this.runSequence();
   }
 
+  ngOnDestroy(): void {
+    this.stop();
+  }
+
   // Define the sequence that will be run every <secs> seconds
   private runSequence(): void {
-    window.clearTimeout();
 
     if (this.photos) {
 
@@ -33,14 +37,16 @@ export class PhotoShowComponent implements AfterViewInit {
       // On the last interation, start the sequence over
       let k = 0;
       for (let i = 0; i < this.photos.length; i++) {
-        setTimeout(() => {
-          this.current = this.photos[k];
-          if ((k + 1) === this.photos.length) {
-            setTimeout(() => { this.runSequence(); }, (this.interval * 1000));
-          } else {
-            k++;
+        this.tasks.push(setTimeout(() => {
+          if(this.running) {
+            this.current = this.photos[k];
+            if ((k + 1) === this.photos.length) {
+              this.tasks.push(setTimeout(() => { this.runSequence(); }, (this.interval * 1000)));
+            } else {
+              k++;
+            }
           }
-        }, (this.interval * 1000) * i);
+        }, (this.interval * 1000) * i));
       }
     }
   }
@@ -48,7 +54,10 @@ export class PhotoShowComponent implements AfterViewInit {
   // Stops the sequence
   public stop(): void {
     this.running = false;
-    window.clearTimeout();
+    this.tasks.forEach(task => {
+      window.clearTimeout(task);
+    });
+    this.tasks = [];
   }
 
   // Restarts the sequence
