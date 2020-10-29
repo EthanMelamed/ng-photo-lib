@@ -1,6 +1,33 @@
 {
   "name": "ng-photo-lib",
   "version": "0.0.1",
+  "description": "A simple library for displaying photos",
+  "author": {
+    "email": "ethanmelamed@gmail.com",
+    "name": "Ethan Melamed",
+    "url": "https://github.com/EthanMelamed/ng-photo-lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EthanMelamed/ng-photo-lib"
+  },
+  "bugs": {
+    "url": "https://github.com/EthanMelamed/ng-photo-lib/issues"
+  },
+  "homepage": "https://github.com/EthanMelamed/ng-photo-lib",
+  "keywords": [
+    "image",
+    "angular",
+    "photo",
+    "directive",
+    "component",
+    "background",
+    "scale",
+    "auto",
+    "fit",
+    "align"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^10.2.0",
     "@angular/core": "^10.2.0"

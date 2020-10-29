@@ -1,6 +1,25 @@
 # NgPhotoLib
 
+This package contains an angular directive for displaying photos, and two pre-made components that make use of that directive to display photos.
+
+PhotoDirective:
+
+Take a PhotoModel or string as input example:
+
+```
+<div libPhoto='http://myphotourl'>
+
+<!--  OR -->
+
+<div [libPhoto]='{ url: "http://myphotourl", focusPosition: { x: 50, y: 50 }>
+
+```
+
+x & y: numbers between 0 - 100, a point represented as a percentage of the way down the width or height of the image
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+
 
 ## Development server
 

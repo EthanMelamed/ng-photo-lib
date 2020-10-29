@@ -16,7 +16,7 @@ export class PhotoDirective implements OnChanges {
       this.handleResize();
       if (this.photo instanceof PhotoModel) {
         this.renderer.setStyle(this.el.nativeElement, 'backgroundImage', `url("${this.photo.url}")`);
-        this.renderer.setStyle(this.el.nativeElement, 'backgroundPosition', this.photo.position);
+        this.renderer.setStyle(this.el.nativeElement, 'backgroundPosition', this.photo.focusPosition);
       } else {
         this.renderer.setStyle(this.el.nativeElement, 'backgroundImage', `url("${this.photo}")`);
       }

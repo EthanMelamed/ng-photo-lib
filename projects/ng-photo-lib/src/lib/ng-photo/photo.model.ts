@@ -1,10 +1,10 @@
 export class PhotoModel {
     public url: string;
-    public position?: PositionModel = {x: 50, y: 50};
+    public focusPosition?: PositionModel = {x: 50, y: 50};
 
     constructor(config: PhotoModel) {
         this.url = config.url;
-        this.position = new PositionModel(config.position);
+        this.focusPosition = new PositionModel(config.focusPosition);
     }
 }
 
