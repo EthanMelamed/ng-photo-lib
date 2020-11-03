@@ -1,24 +1,68 @@
-# PhotoLib
+# NG_PHOTO-LIB
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+A Library containing the powerful libPhoto directive for displaying images. And some pre-made photo displaying components that make use of it.
 
-## Code scaffolding
+## What it does
 
-Run `ng generate component component-name --project ng-photo-lib` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project photo-lib`.
-> Note: Don't forget to add `--project photo-lib` or else it will be added to the default project in your `angular.json` file. 
+Displays an image in any size of container. Depending on how the shapes of the image and the container compare to one another, the image is cropped vertically or horizontally.
+this
 
-## Build
+<div>
+When the container is the exact dimensions of the image, the entire image is displayed like 
+<div><img src="Simba-perfect.jpg"/></div>
+</div>
 
-Run `ng build photo-lib` to build the project. The build artifacts will be stored in the `dist/` directory.
+<div>
+When the container has a wider ratio than the image, the photo is cropped vertically to fit like this
+<div><img src="Simba-wide.jpeg"/></div>
+</div>
 
-## Publishing
+<div>
+And when the container has a taller ratio than the image, the photo is cropped horizontally to fit.
+<div><img src="Simba-tall.jpeg"/></div>
+</div>
 
-After building your library with `ng build photo-lib`, go to the dist folder `cd dist/photo-lib` and run `npm publish`.
+<div>
+For each image you pay pass in a focus point as a percentage of the width and height, which centers the cropping (as much as possible)
+Lets choose {x: 70, y: 58}, a point on the nose of Simba
 
-## Running unit tests
+<div><img src="Simba-marked.jpeg"/></div>
+</div>
 
-Run `ng test photo-lib` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<div>
+Then the cropped results would look like this
+<div><img src="Simba-wide-nose.jpeg"/><img src="Simba-tall-nose.jpeg"/></div>
+</div>
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## Usage
+
+```
+npm install --save ng-photo-lib@latest
+```
+
+### Directive uses:
+```
+<div libPhoto='http://myphotourl'>
+```
+
+```
+<div [libPhoto]='{ url: "http://myphotourl", focusPosition: new Position({ x: 50, y: 50 })>
+```
+
+### Slideshow use:
+
+```
+<!-- Requires consumer to set the size of this component -->
+<lib-photo-show [photos]='myPhotosArray' [interval]='10'></lib-photo-show>
+```
+
+### Gallery use: Takes exactly 6 photos
+
+```
+<!-- Requires consumer to set the size of this component -->
+<lib-photo-gallery [photos]='myPhotosArray'></lib-photo-gallery>
+```
