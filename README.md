@@ -66,3 +66,9 @@ npm install --save ng-photo-lib@latest
 <!-- Requires consumer to set the size of this component -->
 <lib-photo-gallery [photos]='myPhotosArray'></lib-photo-gallery>
 ```
+
+
+<div>
+The gallery looks like this, and is responsive such that the column on the right will drop below the column on the left on small screens.
+<div><img src="projects/ng-photo-lib/gallery-demo.png"/></div>
+</div>
