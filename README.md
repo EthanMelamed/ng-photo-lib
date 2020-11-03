@@ -1,4 +1,4 @@
-# NG_PHOTO-LIB
+# NG-PHOTO-LIB
 
 A Library containing the powerful libPhoto directive for displaying images. And some pre-made photo displaying components that make use of it.
 
