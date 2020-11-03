@@ -23,7 +23,7 @@ And when the container has a taller ratio than the image, the photo is cropped h
 </div>
 
 <div>
-For each image you pay pass in a focus point as a percentage of the width and height, which centers the cropping (as much as possible)
+For each image you may pass in a focus point as a percentage of the width and height, which centers the cropping (as much as possible)
 Lets choose {x: 70, y: 58}, a point on the nose of Simba
 
 <div><img src="Simba-marked.jpeg"/></div>
