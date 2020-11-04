@@ -1,11 +1,10 @@
-# NG_PHOTO-LIB
+# NG-PHOTO-LIB
 
 A Library containing the powerful libPhoto directive for displaying images. And some pre-made photo displaying components that make use of it.
 
 ## What it does
 
 Displays an image in any size of container. Depending on how the shapes of the image and the container compare to one another, the image is cropped vertically or horizontally.
-this
 
 <div>
 When the container is the exact dimensions of the image, the entire image is displayed like 
